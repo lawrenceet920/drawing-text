@@ -27,11 +27,19 @@ def main():
     while running:
         running = handle_events()
         screen.fill(config.WHITE)
+        myfont = pygame.font.Font("FreeMono.ttf", 50, bold=True, italic=True)
+        draw_text(screen, 'Sample text!', myfont, config.BLACK, 350, 200)
+
         pygame.display.flip()
 
         # Limit clock to FPS
         clock.tick(config.FPS)
     pygame.quit()
     sys.exit()
+
+def draw_text(screen, text, myfont, color, x, y):
+    mytext = myfont.render(text, True, color)
+    screen.blit(mytext, (x, y))
+
 if __name__ == '__main__':
     main()
